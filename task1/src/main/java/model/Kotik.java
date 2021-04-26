@@ -6,30 +6,31 @@ public class Kotik {
     private String name;
     private String meow;
     private int food_energy;
-    public static int kotikCount = 0;
+    private static int kotikCount = 0;
 
-    public Kotik(int prettiness, int weight, int food_energy, String name, String meow){
+    public Kotik(int prettiness, int weight, int food_energy, String name, String meow) {
         this.weight = weight;
         this.name = name;
         this.prettiness = prettiness;
         this.meow = meow;
         this.food_energy = food_energy;
         kotikCount++;
-        liveAnotherDay();
-
     }
 
-    public Kotik(){
+    public Kotik() {
+        kotikCount++;
     }
 
-    public void setKotik(int prettiness, int weight, int food_energy, String name, String meow){
+    public static int getKotikCount() {
+        return kotikCount;
+    }
+
+    public void setKotik(int prettiness, int weight, int food_energy, String name, String meow) {
         this.weight = weight;
         this.name = name;
         this.prettiness = prettiness;
         this.meow = meow;
         this.food_energy = food_energy;
-        liveAnotherDay();
-        kotikCount++;
     }
 
     public int getPrettiness() {
@@ -48,33 +49,29 @@ public class Kotik {
         return meow;
     }
 
-    private boolean play(){
-        if (food_energy < 0){
+    private boolean play() {
+        if (food_energy < 0) {
             return false;
         }
-        else {
-            System.out.println("cat is playing");
-            food_energy -= 2;
-            return true;
-        }
+        System.out.println("cat is playing");
+        food_energy -= 2;
+        return true;
     }
 
-    private  boolean  sleep(){
-        if (food_energy < 0){
+    private boolean sleep() {
+        if (food_energy < 0) {
             return false;
-        }
-        else {
+        } else {
             System.out.println("cat is sleeping");
             food_energy -= 1;
             return true;
         }
     }
 
-    private boolean chaseMouse(){
-        if (food_energy < 0){
+    private boolean chaseMouse() {
+        if (food_energy < 0) {
             return false;
-        }
-        else{
+        } else {
             System.out.println("cat is chasing mouse");
             food_energy -= 3;
             return true;
@@ -82,22 +79,20 @@ public class Kotik {
 
     }
 
-    private  boolean wash(){
-        if (food_energy < 0){
+    private boolean wash() {
+        if (food_energy < 0) {
             return false;
-        }
-        else {
+        } else {
             food_energy -= 2;
             System.out.println("cat is washing");
             return true;
         }
     }
 
-    private boolean baskInTheSun(){
-        if (food_energy < 0){
+    private boolean baskInTheSun() {
+        if (food_energy < 0) {
             return false;
-        }
-        else {
+        } else {
             food_energy -= 1;
             System.out.println("cat is basking in the sun");
             return true;
@@ -105,62 +100,62 @@ public class Kotik {
     }
 
 
-    private void eat(int energyPlus){
+    private void eat(int energyPlus) {
         food_energy += energyPlus;
     }
 
 
-    private void eat(String energy, String foodName){
+    private void eat(int energy, String foodName) {
+        food_energy += energy;
         //what???
     }
 
-    private void eat(){
-        eat("KKal", "whiskas");
+    private void eat() {
+        eat(5, "whiskas");
         //what???
     }
 
-    public void liveAnotherDay(){
+    public void liveAnotherDay() {
         int i = 0;
-        while (i<24){
+        while (i < 24) {
             i++;
             System.out.print(i + "  ");
-            int rand = (int) (Math.random()*5) + 1;
+            int rand = (int) (Math.random() * 5) + 1;
             switch (rand) {
                 case 1:
-                    if (!play()){
+                    if (!play()) {
                         System.out.println("need eat!");
                         eat(4);
                     }
                     break;
                 case 2:
-                    if (!sleep()){
+                    if (!sleep()) {
                         System.out.println("need eat!");
-                        eat(3);
+                        eat(3, "fish");
                     }
                     break;
                 case 3:
-                    if (!chaseMouse()){
+                    if (!chaseMouse()) {
                         System.out.println("need eat!");
                         eat(5);
                     }
                     break;
                 case 4:
-                    if (!baskInTheSun()){
+                    if (!baskInTheSun()) {
                         System.out.println("need eat!");
-                        eat(3);
+                        eat();
                     }
                     break;
                 case 5:
-                    if (!wash()){
+                    if (!wash()) {
                         System.out.println("need eat!");
                         eat(2);
                     }
                     break;
             }
 
-
         }
-        System.out.printf("\n\tИмя котика : %s, вес котика: %d \n\n", getName(), getWeight());
+
     }
 
 }
