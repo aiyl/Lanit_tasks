@@ -6,8 +6,8 @@ import food.Meat;
 public class Zoo {
 
     public static void main(String[] args) {
-        Animal lion = new Lion();
-        Animal cow = new Cow();
+        Lion lion = new Lion();
+        Cow cow = new Cow();
         Animal crocodile = new Crocodile();
         Duck duck = new Duck();
         Fish fish = new Fish();
@@ -21,5 +21,18 @@ public class Zoo {
         worker.feed(lion, meat);
         worker.feed(fish, meat);
         worker.feed(fish, grass);
+        //worker.getVoice(fish);
+        piranha.swimDeep();
+        duck.flyFast();
+        worker.feed(duck, grass);
+        worker.getVoice(cow);
+
+        Animal[] pond = new Animal[] {duck, fish, crocodile};
+        for (Animal animal : pond){
+            Swim swimAnimal = (Swim) animal;
+            swimAnimal.swimDeep();
+        }
+
+
     }
 }

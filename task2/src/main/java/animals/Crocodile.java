@@ -8,7 +8,7 @@ public class Crocodile extends Carnivorous implements Swim, Voice{
     }
 
     public void swimDeep() {
-        System.out.println("The crocodile is swimming");
         food_level -= 10;
+        System.out.println("The crocodile is swimming. Energy = " + food_level);
     }
 }

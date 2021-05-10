@@ -9,6 +9,6 @@ public class Cow extends Herbivore implements Voice, Run {
 
     public void runFast() {
         food_level -= 5;
-        System.out.println("food level - " + food_level);
+        System.out.println("Cow is running. food level - " + food_level);
     }
 }

@@ -7,8 +7,8 @@ public abstract class Herbivore extends Animal {
     @Override
     public void eat(Food food){
         if (food instanceof Grass){
-            System.out.println("The animal is eating ");
             food_level += Grass.food_energy;
+            System.out.println("Animal has eat food. Animal Energy = " + food_level);
         }
         else {
             System.out.println("The animal need another food!");

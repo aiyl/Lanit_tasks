@@ -10,8 +10,9 @@ public class Worker {
         animal.eat(food);
     }
 
-    void getVoice(Object animal) {
-        System.out.println("animal.voice");
+    void getVoice(Animal animal) {
+        Voice animalVoice = (Voice) animal;
+        System.out.println(animalVoice.voice());
     }
 
 }
